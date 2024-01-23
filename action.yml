@@ -1,0 +1,16 @@
+name: "Golang deadcode checker"
+description: "Run deadcode in your Github Action workflows"
+author: "Ahmet Aygun"
+branding:
+    icon: 'activity'
+    color: 'blue'
+inputs:
+  directory:
+    description: "The path the analysis should be limited to."
+    required: true
+    default: "."
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    DIRECTORY: ${{ inputs.directory }}
